@@ -1,0 +1,29 @@
+{% extends 'principal.html' %}
+{% block contenido %}
+    <h1>Lista de Propiedades</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>direccion</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for propiedad in propiedades %}
+            <tr>
+                <td>{{ propiedad.titulo }}</td>
+                <td>{{ propiedad.direccion}}</td>
+                <td>{{ propiedad.precio_por_noche }}</td>
+                <td>
+                    <a href="{% url 'propiedad_actualizar' propiedad.id %}">Actualizar</a>
+                    <a href="{% url 'propiedad_delete' propiedad.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'propiedad_lista' %}">Crear nueva Propiedad</a>
+{% endblock %}
+

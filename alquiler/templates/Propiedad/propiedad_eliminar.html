@@ -1,0 +1,10 @@
+{% extends "principal.html" %}
+{% block contenido %}
+<h1>Eliminar Servicio</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Estás seguro de que deseas eliminar la Propiedad {{ perfil.id }}?</p>
+        <button type="submit">Sí, eliminar </button> 
+        <a href="{% url 'servicioextra_lista' %}">Cancelar</a>
+    </form>
+{% endblock contenido %}

@@ -1,0 +1,10 @@
+{% extends "principal.html" %}
+
+{% block contenido %}
+    <h1>Usuarios Recientes</h1>
+    <ul>
+        {% for usuario in usuarios %}
+            {% include "plantillas/plantilla_usuario_reciente.html" %}
+        {% endfor %}
+    </ul>
+{% endblock contenido %}

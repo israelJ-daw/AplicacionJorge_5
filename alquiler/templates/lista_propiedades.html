@@ -1,0 +1,7 @@
+{% extends "principal.html" %}
+    {% block contenido %}
+        <h1>Lista de Propiedades</h1>
+        {% for propiedad in propiedades %}
+         {% include "plantillas/plantilla_lista_propiedades.html" %}
+        {% endfor %}
+    {% endblock contenido %}

@@ -1,0 +1,11 @@
+<li>
+    <p><strong>Contenido:</strong> {{ comentario.contenido| default:"No hay nada" }}</p>
+    <p><strong>Fecha:</strong> {{ comentario.fecha_comentario|date:"d-m-Y" }}</p>
+    <p><strong>Hace:</strong> {{ comentario.fecha_comentario|timesince }}</p>
+    <p><strong>Valoración:</strong> {{ comentario.valoracion }}</p>
+    {% if comentario.anonimo == True %}
+        <p><strong>Anónimo:</strong> Este comentario fue hecho de manera anónima.</p>
+    {% else %}
+        <p><strong>Anónimo:</strong> Este comentario no es anónimo.</p>
+    {% endif %}
+</li>

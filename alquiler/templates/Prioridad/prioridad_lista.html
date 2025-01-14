@@ -1,0 +1,29 @@
+{% extends 'principal.html' %}
+{% block contenido %}
+    <h1>Lista de Prioridad</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>descripcion</th>
+                <th>Numero</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prioridad in prioridades %}
+            <tr>
+                <td>{{ prioridad.nombre }}</td>
+                <td>{{ prioridad.descripcion}}</td>
+                <td>{{ prioridad.numero }}</td>
+                <td>
+                    <a href="{% url 'prioridad_actualizar' prioridad.id %}">Actualizar</a>
+                    <a href="{% url 'prioridad_delete' prioridad.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'prioridad_lista' %}">Crear nueva Propiedad</a>
+{% endblock %}
+

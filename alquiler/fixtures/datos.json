@@ -1,0 +1,960 @@
+[
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 4,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 4,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 4,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 4,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 5,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 6,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add categoria",
+        "content_type": 7,
+        "codename": "add_categoria"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change categoria",
+        "content_type": 7,
+        "codename": "change_categoria"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete categoria",
+        "content_type": 7,
+        "codename": "delete_categoria"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view categoria",
+        "content_type": 7,
+        "codename": "view_categoria"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add pago",
+        "content_type": 8,
+        "codename": "add_pago"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change pago",
+        "content_type": 8,
+        "codename": "change_pago"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete pago",
+        "content_type": 8,
+        "codename": "delete_pago"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view pago",
+        "content_type": 8,
+        "codename": "view_pago"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add perfil",
+        "content_type": 9,
+        "codename": "add_perfil"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change perfil",
+        "content_type": 9,
+        "codename": "change_perfil"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete perfil",
+        "content_type": 9,
+        "codename": "delete_perfil"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view perfil",
+        "content_type": 9,
+        "codename": "view_perfil"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add servicio extra",
+        "content_type": 10,
+        "codename": "add_servicioextra"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change servicio extra",
+        "content_type": 10,
+        "codename": "change_servicioextra"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete servicio extra",
+        "content_type": 10,
+        "codename": "delete_servicioextra"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view servicio extra",
+        "content_type": 10,
+        "codename": "view_servicioextra"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add usuario",
+        "content_type": 11,
+        "codename": "add_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change usuario",
+        "content_type": 11,
+        "codename": "change_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete usuario",
+        "content_type": 11,
+        "codename": "delete_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view usuario",
+        "content_type": 11,
+        "codename": "view_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add categoria principal",
+        "content_type": 12,
+        "codename": "add_categoriaprincipal"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change categoria principal",
+        "content_type": 12,
+        "codename": "change_categoriaprincipal"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete categoria principal",
+        "content_type": 12,
+        "codename": "delete_categoriaprincipal"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view categoria principal",
+        "content_type": 12,
+        "codename": "view_categoriaprincipal"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add propiedad",
+        "content_type": 13,
+        "codename": "add_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change propiedad",
+        "content_type": 13,
+        "codename": "change_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete propiedad",
+        "content_type": 13,
+        "codename": "delete_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view propiedad",
+        "content_type": 13,
+        "codename": "view_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add prioridad",
+        "content_type": 14,
+        "codename": "add_prioridad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change prioridad",
+        "content_type": 14,
+        "codename": "change_prioridad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete prioridad",
+        "content_type": 14,
+        "codename": "delete_prioridad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view prioridad",
+        "content_type": 14,
+        "codename": "view_prioridad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add comentario",
+        "content_type": 15,
+        "codename": "add_comentario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change comentario",
+        "content_type": 15,
+        "codename": "change_comentario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete comentario",
+        "content_type": 15,
+        "codename": "delete_comentario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view comentario",
+        "content_type": 15,
+        "codename": "view_comentario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add reserva",
+        "content_type": 16,
+        "codename": "add_reserva"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change reserva",
+        "content_type": 16,
+        "codename": "change_reserva"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete reserva",
+        "content_type": 16,
+        "codename": "delete_reserva"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view reserva",
+        "content_type": 16,
+        "codename": "view_reserva"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "categoria"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "pago"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "perfil"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "servicioextra"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "usuario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "categoriaprincipal"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "propiedad"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "prioridad"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "comentario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+        "app_label": "alquiler",
+        "model": "reserva"
+    }
+},
+{
+    "model": "alquiler.usuario",
+    "pk": 1,
+    "fields": {
+        "nombre": "Short soon some half station style. That recognize beyond figure. Hospital anything according case.",
+        "email": "colonbarbara@example.net",
+        "telefono": "Write form such.",
+        "fecha_registro": "2019-11-27T20:04:44.941"
+    }
+},
+{
+    "model": "alquiler.usuario",
+    "pk": 2,
+    "fields": {
+        "nombre": "Process yes these do class sit as. Should mission as parent citizen.",
+        "email": "debrahernandez@example.org",
+        "telefono": "Analysis pick event.",
+        "fecha_registro": "1979-04-14T13:25:09.650"
+    }
+},
+{
+    "model": "alquiler.usuario",
+    "pk": 3,
+    "fields": {
+        "nombre": "israel",
+        "email": "irrachico@gmail.com",
+        "telefono": "24313",
+        "fecha_registro": "2024-12-23T23:26:00"
+    }
+},
+{
+    "model": "alquiler.perfil",
+    "pk": 1,
+    "fields": {
+        "usuario": 2,
+        "genero": "Run rest.",
+        "edad": 3364,
+        "ubicacion": "Voice choice matter such. Significant democratic what manager three window.\nControl memory positive reveal attack many. Rather community necessary everyone green. Itself toward nature.",
+        "biografia": "Reduce enjoy whole executive month. Deal listen hand behind. Between reason us evening wonder test media. Audience method trip former writer rich."
+    }
+},
+{
+    "model": "alquiler.perfil",
+    "pk": 2,
+    "fields": {
+        "usuario": 1,
+        "genero": "Drive.",
+        "edad": 22271,
+        "ubicacion": "Western big allow after road student.\nFly dinner brother admit tough put design. Claim challenge memory out. Fine rather reflect.\nReady base last pick. Window set radio good thank agent.",
+        "biografia": "Traditional north seem tough. Fly wear western television always act region."
+    }
+},
+{
+    "model": "alquiler.categoria",
+    "pk": 1,
+    "fields": {
+        "nombre": "Perform board rate card rich until case. Group gas operation thousand later.",
+        "descripcion": "Three reason reason build free approach class.\nDiscussion office indicate amount staff. Bit bit she say painting price remember. On arm this five one professional case. Eye simply specific door.",
+        "premiun": false,
+        "principal": false
+    }
+},
+{
+    "model": "alquiler.categoria",
+    "pk": 2,
+    "fields": {
+        "nombre": "Throughout move product religious society television government. Black recently wish charge.",
+        "descripcion": "Large attack cause author call modern. Serious four all only.\nWe one upon keep threat. Take quickly size bar approach health.",
+        "premiun": true,
+        "principal": true
+    }
+},
+{
+    "model": "alquiler.servicioextra",
+    "pk": 1,
+    "fields": {
+        "nombre": "Care degree high decide big during indeed. Box long game doctor role store she.",
+        "descripcion": "Interest little ten between south put white. Several with prevent beautiful piece. Very everything performance store language right.",
+        "precio": 23811,
+        "disponible": false
+    }
+},
+{
+    "model": "alquiler.servicioextra",
+    "pk": 2,
+    "fields": {
+        "nombre": "Inside water second wall. Hair audience lay. Common market one approach decision debate design.",
+        "descripcion": "Mouth trial fact expert. Feel body too bit young also. Note rest from prevent meet. Three without need national.",
+        "precio": 13681,
+        "disponible": false
+    }
+},
+{
+    "model": "alquiler.propiedad",
+    "pk": 1,
+    "fields": {
+        "titulo": "Want throw suddenly series coach.\nToday around reduce time. Teacher example money through practice democratic collection. Thousand view within.\nOf short produce media environmental agreement eight.",
+        "direccion": "Science wonder pay education again resource. Vote you in beautiful buy anyone mean.\nTax month man religious soldier operation. Service factor member eye work teach world.",
+        "precio_por_noche": -12486,
+        "max_usuarios": 7910,
+        "usuario": 1,
+        "servicios_extra": [
+            1
+        ]
+    }
+},
+{
+    "model": "alquiler.propiedad",
+    "pk": 2,
+    "fields": {
+        "titulo": "Customer wrong dinner third.\nInstead recent dark population. See available message and cultural whether trouble.\nFeeling record eye. Pay respond grow happen operation.",
+        "direccion": "Prepare drug window mouth perform decade. Wait former address approach.\nForm operation away win. Thought charge where around performance safe together away. Word end discussion law.",
+        "precio_por_noche": -12098,
+        "max_usuarios": 6450,
+        "usuario": 2,
+        "servicios_extra": [
+            2
+        ]
+    }
+},
+{
+    "model": "alquiler.prioridad",
+    "pk": 1,
+    "fields": {
+        "nombre": "Serve policy thought shoulder.",
+        "descripcion": "valor_por_defecto",
+        "premiun": true,
+        "numero": -3286,
+        "propiedades": [
+            1
+        ]
+    }
+},
+{
+    "model": "alquiler.prioridad",
+    "pk": 2,
+    "fields": {
+        "nombre": "Service good color. Argue suddenly move.",
+        "descripcion": "valor_por_defecto",
+        "premiun": false,
+        "numero": -17108,
+        "propiedades": [
+            2
+        ]
+    }
+},
+{
+    "model": "alquiler.pago",
+    "pk": 1,
+    "fields": {
+        "total": 0.805382800580014,
+        "fecha_pago": "1973-06-03T02:14:26.455",
+        "metodo_pago": "Artist page name air send specific.",
+        "cod_transaccion": "Enough art expect technology worry together value. Feel poor before reveal official doctor case."
+    }
+},
+{
+    "model": "alquiler.pago",
+    "pk": 2,
+    "fields": {
+        "total": 0.48321644172559275,
+        "fecha_pago": "1981-05-26T18:36:42.960",
+        "metodo_pago": "Say light news employee rock social.",
+        "cod_transaccion": "Decision turn himself simply increase stand upon. Simply memory far.\nHalf something fund born walk."
+    }
+},
+{
+    "model": "alquiler.reserva",
+    "pk": 1,
+    "fields": {
+        "fecha_inicio": "1990-11-22",
+        "fecha_fin": "2013-08-07T16:08:29.945",
+        "total": 0.33368668160882453,
+        "estado": "Deep court song.",
+        "propiedad": 2,
+        "pago": 1,
+        "perfil": 1
+    }
+},
+{
+    "model": "alquiler.reserva",
+    "pk": 2,
+    "fields": {
+        "fecha_inicio": "1999-05-28",
+        "fecha_fin": "1987-07-08T12:30:16.938",
+        "total": 0.816400878705708,
+        "estado": "Mind wish what draw.",
+        "propiedad": 1,
+        "pago": 2,
+        "perfil": 2
+    }
+},
+{
+    "model": "alquiler.comentario",
+    "pk": 1,
+    "fields": {
+        "contenido": "Benefit sense recent risk training cause sort box. Enjoy off such develop school. Certain international week late senior population.",
+        "fecha_comentario": "2010-08-10T07:37:41.924",
+        "valoracion": 7134,
+        "anonimo": false,
+        "propiedad": 1
+    }
+},
+{
+    "model": "alquiler.comentario",
+    "pk": 2,
+    "fields": {
+        "contenido": "Join several what key discover two. Early you region think experience. Instead at sister market. Note difficult near strategy guess issue.",
+        "fecha_comentario": "2016-12-09T14:38:39.252",
+        "valoracion": 15141,
+        "anonimo": false,
+        "propiedad": 1
+    }
+},
+{
+    "model": "alquiler.categoriaprincipal",
+    "pk": 1,
+    "fields": {
+        "nombre": "",
+        "descripcion": "",
+        "categoria": 2,
+        "propiedad": 1
+    }
+},
+{
+    "model": "alquiler.categoriaprincipal",
+    "pk": 2,
+    "fields": {
+        "nombre": "",
+        "descripcion": "",
+        "categoria": 1,
+        "propiedad": 2
+    }
+},
+{
+    "model": "alquiler.categoriaprincipal",
+    "pk": 3,
+    "fields": {
+        "nombre": "Go blue up national. Firm option rate without leave lot.",
+        "descripcion": "Dark author recently card tough. Yes left yet visit me.\nCup cold fund. Writer remain history point.\nLate yeah speech have. Wall fly candidate almost together gas.",
+        "categoria": 2,
+        "propiedad": 2
+    }
+},
+{
+    "model": "alquiler.categoriaprincipal",
+    "pk": 4,
+    "fields": {
+        "nombre": "Often where interesting protect. Onto seem even morning.",
+        "descripcion": "Consumer that market relate loss structure. Down now require partner.\nGreen present anyone responsibility early defense break. Than item yet. Stand safe hospital.",
+        "categoria": 2,
+        "propiedad": 2
+    }
+}
+]

@@ -1,0 +1,21 @@
+<p>
+    <strong>Precio por noche:</strong> {{ propiedad.precio_por_noche|linenumbers  }}
+    {% if propiedad.precio_por_noche < 100 %}
+        - 🤑 ¡Aprovecha esta ganga!
+    {% elif propiedad.precio_por_noche >= 100 and propiedad.precio_por_noche <= 500 %}
+        - 💰 Calidad a buen precio.
+    {% else %}
+        - 🏷️ Propiedad exclusiva.
+    {% endif %}
+
+    <p><strong>Máximo de usuarios:</strong> {{ propiedad.max_usuarios }}
+        {% if propiedad.max_usuarios <= 2 %}
+            - Ideal para parejas 💑
+        {% elif propiedad.max_usuarios <= 5 %}
+            - Perfecta para familias 👨‍👩‍👧‍👦
+        {% else %}
+            - Espaciosa para grupos grandes 🏘️
+        {% endif %}
+    </p>
+    
+</p>

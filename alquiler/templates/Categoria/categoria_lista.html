@@ -1,0 +1,29 @@
+
+{% extends 'principal.html' %}
+{% block contenido %}
+    <h1>Lista de Categorias</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>descripcion</th>
+                <th>premiun</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in servicios %}
+            <tr>
+                <td>{{ categoria.nombre }}</td>
+                <td>{{ categoria.descripcion}}</td>
+                <td>{{ categoria.premiun }}</td>
+                <td>
+                    <a href="{% url 'categoria_actualizar' categoria.id %}">Actualizar</a>
+                    <a href="{% url 'categoria_delete' categoria.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'categoria_crear' %}">Crear nuevo Categoria</a>
+{% endblock %}

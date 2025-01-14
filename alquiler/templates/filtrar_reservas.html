@@ -1,0 +1,7 @@
+{% extends "principal.html" %}
+    {% block contenido %}
+        {% for reserva in reservas %}
+           {% include "plantillas/plantilla_filtrar_reservas.html" %}
+        {% endfor %}
+    </ul>
+    {% endblock contenido%}

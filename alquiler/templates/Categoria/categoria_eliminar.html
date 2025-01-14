@@ -1,0 +1,10 @@
+{% extends "principal.html" %}
+{% block contenido %}
+<h1>Eliminar Categoria</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Estás seguro de que deseas eliminar la Categoria {{ perfil.id }}?</p>
+        <button type="submit">Sí, eliminar </button> 
+        <a href="{% url 'categoria_lista' %}">Cancelar</a>
+    </form>
+{% endblock contenido %}

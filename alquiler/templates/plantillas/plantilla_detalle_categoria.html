@@ -1,0 +1,7 @@
+<li>
+    {% if propiedad.direccion != "Subject add media. Discussion person people however day couple. Cold type begin." %}
+        <p>{{ propiedad.titulo|title }} - Propiedad destacada en {{ propiedad.direccion|upper }}</p>
+    {% else %}
+        <p>{{ propiedad.titulo | lower }} - {{ propiedad.direccion }}</p>
+    {% endif %}
+</li>

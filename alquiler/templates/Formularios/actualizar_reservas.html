@@ -1,0 +1,5 @@
+<form method="POST">
+    {% csrf_token %}
+    {{ formulario.as_p }}  <!-- Muestra el formulario -->
+    <button type="submit">Actualizar</button>
+</form>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle de Usuario</title>
+</head>
+<body>
+    <h1>Detalle del Usuario</h1>
+    <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+    <p><strong>Email:</strong> {{ usuario.email }}</p>
+    <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+    <p><strong>Fecha de Registro:</strong> {{ usuario.fecha_registro|date:"d-m-Y" |time:"H:i"}}</p>
+    <h2>Perfil</h2>
+    <p><strong>Género:</strong> {{ usuario.perfil.genero }}</p>
+    <p><strong>Edad:</strong> {{ usuario.perfil.edad }}</p>
+    <p><strong>Ubicación:</strong> {{ usuario.perfil.ubicacion }}</p>
+    <p><strong>Biografía:</strong> {{ usuario.perfil.biografia }}</p>
+
+    <li>
+        <p>{{ usuario.nombre }} - Registrado el {{ usuario.fecha_registro|date:"d-m-Y" }}
+            {% if usuario.fecha_registro|date:"Y" > "2023" %}
+                - 🎉 Usuario reciente
+            {% else %}
+                - 🕰️ Usuario con experiencia
+            {% endif %}
+        </p>
+    </li>
+    
+</body>
+</html>

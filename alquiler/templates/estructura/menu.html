@@ -1,0 +1,80 @@
+<h1>Mi Proyecto</h1>
+
+    <h2>Listado de enlaces</h2>
+
+<ul>
+    <li><a href="{% url 'usuario_detalle' email='andrea58@example.net' %}">Detalle de Usuario (OneToOne)</a></li>
+    <li><a href="{% url 'lista_propiedades' %}">Lista de Propiedades (ManyToMany)</a></li>
+    <li><a href="{% url 'detalle_categoria' id=1 %}">Detalle de Categoría (QuerySet con parámetros)</a></li>
+    <li><a href="{% url 'reservas_propiedad' propiedad_id=1 %}">Reservas de una Propiedad (ManyToOne)</a></li>
+    <li><a href="{% url 'comentarios_propiedad' propiedad_id=1 %}">Comentarios de una Propiedad (Reverse)</a></li>
+    <li><a href="{% url 'filtrar_reservas' %}">Filtrar Reservas (AND, OR)</a></li>
+    <li><a href="{% url 'categorias_sin_propiedades' %}">Categorías sin Propiedades (None intermedio)</a></li>
+    <li><a href="{% url 'propiedad_precio_agregado' %}">Precio Promedio de Propiedades (Aggregate)</a></li>
+    <li><a href="{% url 'usuarios_recientes' %}">Usuarios Recientes (OrderBy y limit)</a></li>
+    <li><a href="{% url 'error_404' %}">Página de Error 404 Personalizada</a></li>
+
+</ul>
+
+<h3>Formularios</h3>
+
+<h4>Usuarios</h4>
+<ul>       
+
+   <li> <a href="{% url 'usuario_crear' %}">Crear Usuario</a> </li>
+
+  <li> <a href="{% url 'usuario_lista' %}">Usuarios Lista</a> </li>
+
+</ul>
+
+<h4>Perfiles</h4>
+
+<ul>       
+
+    <li> <a href="{% url 'perfil_crear' %}">Crear Perfil</a> </li>
+ 
+   <li> <a href="{% url 'perfil_lista' %}">Perfil Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Categorias</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'categoria_crear' %}">Crear Categorias</a> </li>
+ 
+   <li> <a href="{% url 'categoria_lista' %}">Categorias Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Servicios Extras</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'servicioextra_crear' %}">Crear Servicios</a> </li>
+ 
+   <li> <a href="{% url 'servicioextra_lista' %}">Servicios Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Propiedades</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'propiedad_crear' %}">Crear Propiedad</a> </li>
+ 
+   <li> <a href="{% url 'propiedad_lista' %}">Propiedades Lista</a> </li>
+ 
+ </ul>
+
+ <h4>Prioridades</h4>
+
+ <ul>       
+
+    <li> <a href="{% url 'prioridad_crear' %}">Crear Prioridad</a> </li>
+ 
+   <li> <a href="{% url 'prioridad_lista' %}">Prioridad Lista</a> </li>
+ 
+ </ul>
+
+

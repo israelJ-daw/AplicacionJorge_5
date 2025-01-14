@@ -1,0 +1,8 @@
+<li>
+    <p><strong>Fecha de Inicio:</strong> {{ reserva.fecha_inicio|date:"d-m-Y" }}</p>
+    <p><strong>Fecha de Fin:</strong> {{ reserva.fecha_fin|date:"d-m-Y" }}</p>
+    <p><strong>Total:</strong> {{ reserva.total }}</p>
+    <p><strong>Estado:</strong> {{ reserva.estado }}</p>
+    <h3>Perfil del Cliente:</h3>
+    <p>{{ reserva.perfil.usuario.nombre }} - {{ reserva.perfil.usuario.email }}</p>
+</li>

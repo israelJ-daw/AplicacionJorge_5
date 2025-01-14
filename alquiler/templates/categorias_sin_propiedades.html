@@ -1,0 +1,14 @@
+{% extends "principal.html" %}
+    {%block contenido%}
+        <h1>Categorías sin Propiedades</h1>
+        <ul>
+            {% for categoria in categorias %}
+                {%include "plantillas/plantilla_categorias_sin_propiedades.html"%}
+
+                {%empty%} 
+                <h1>NO HAY NADA</h1>
+            
+            {% endfor %}
+        </ul>
+          
+    {%endblock%}    

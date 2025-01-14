@@ -1,0 +1,7 @@
+{% extends "principal.html" %}
+    {%block contenido%}
+        {% for comentario in propiedad.comentarios.all %}
+            {% include "plantillas/plantilla_comentarios_propiedad.html" %}
+        {% endfor %}
+    </ul>
+    {% endblock contenido%}

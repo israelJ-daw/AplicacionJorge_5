@@ -1,0 +1,11 @@
+{% extends "principal.html" %}
+    {% block  contenido%}
+    <h1>Categoría: {{ categoria.nombre }}</h1>
+    <p><strong>Descripción:</strong> {{ categoria.descripcion }}</p>
+    <h2>Propiedades</h2>
+    <ul>
+        {% for propiedad in categoria.propiedades.all %}
+            {% include "plantillas/plantilla_detalle_categoria.html" %}
+        {% endfor %}
+    </ul>
+    {% endblock contenido%}
