@@ -1,5 +1,19 @@
-<li>
-    <p><strong>Estado:</strong> {{ reserva.estado|cut:" " }}</p>
-    <p><strong>Total:</strong> {{ reserva.total }}</p>
-    <p><strong>Fecha Inicio:</strong> {{ reserva.fecha_inicio|date:"d-m-Y"}}</p>
-</li>
+{% if user.is_authenticated %}
+    <li>
+        <p><strong>Estado:</strong> {{ reserva.estado|cut:" " }}</p>
+        <p><strong>Total:</strong> {{ reserva.total }}</p>
+        <p><strong>Fecha Inicio:</strong> {{ reserva.fecha_inicio|date:"d-m-Y"}}</p>
+
+        {% if perms.alquiler.change_reserva %}
+            <!-- Si el usuario tiene permiso para editar la reserva -->
+            <a href="{% url 'reserva_editar' reserva.id %}">Editar</a>
+        {% endif %}
+        
+        {% if perms.alquiler.delete_reserva %}
+            <!-- Si el usuario tiene permiso para eliminar la reserva -->
+            <a href="{% url 'reserva_eliminar' reserva.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+{% else %}
+    <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver las reservas.</p>
+{% endif %}

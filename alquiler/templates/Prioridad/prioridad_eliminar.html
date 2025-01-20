@@ -1,10 +1,19 @@
 {% extends "principal.html" %}
 {% block contenido %}
-<h1>Eliminar Prioridad</h1>
-    <form method="post">
-        {% csrf_token %}
-        <p>¿Estás seguro de que deseas eliminar la Prioridad {{ perfil.id }}?</p>
-        <button type="submit">Sí, eliminar </button> 
-        <a href="{% url 'servicioextra_lista' %}">Cancelar</a>
-    </form>
-{% endblock contenido %}
+    {% if user.is_authenticated %}
+        <h1>Eliminar Prioridad</h1>
+        
+        {% if perms.alquiler.delete_prioridad %}
+            <form method="post">
+                {% csrf_token %}
+                <p>¿Estás seguro de que deseas eliminar la Prioridad {{ perfil.id }}?</p>
+                <button type="submit">Sí, eliminar</button> 
+                <a href="{% url 'prioridad_lista' %}">Cancelar</a>
+            </form>
+        {% else %}
+            <p>No tienes permiso para eliminar esta prioridad.</p>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para eliminar la prioridad.</p>
+    {% endif %}
+{% endblock %}

@@ -1,28 +1,35 @@
 {% extends 'principal.html' %}
 {% block contenido %}
-    <h1>Lista de Perfil</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Genero</th>
-                <th>Edad</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for perfil in perfiles %}
-            <tr>
-                <td>{{ perfil.id }}</td>
-                <td>{{ perfil.genero }}</td>
-                <td>{{ perfil.edad }}</td>
-                <td>
-                    <a href="{% url 'perfil_actualizar' perfil.id %}">Actualizar</a>
-                    <a href="{% url 'perfil_delete' perfil.id %}">Eliminar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'perfil_crear' %}">Crear nuevo perfil</a>
+    {% if user.is_authenticated %}
+        <h1>Lista de Perfiles</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Género</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for perfil in perfiles %}
+                <tr>
+                    <td>{{ perfil.id }}</td>
+                    <td>{{ perfil.genero }}</td>
+                    <td>{{ perfil.edad }}</td>
+                    <td>
+                            <a href="{% url 'perfil_actualizar' perfil.id %}">Actualizar</a>
+                        
+                            <a href="{% url 'perfil_delete' perfil.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if permisos.can_add %}
+            <a href="{% url 'perfil_crear' %}">Crear nuevo perfil</a>
+        {% endif %}
+    {% else %}
+        <p>No tienes permiso para ver esta página. Por favor, <a href="{% url 'login' %}">inicia sesión</a>.</p>
+    {% endif %}
 {% endblock %}

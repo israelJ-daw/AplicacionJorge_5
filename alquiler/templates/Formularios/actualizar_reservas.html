@@ -1,5 +1,21 @@
-<form method="POST">
-    {% csrf_token %}
-    {{ formulario.as_p }}  <!-- Muestra el formulario -->
-    <button type="submit">Actualizar</button>
-</form>
+{% extends 'principal.html' %}
+
+{% block contenido %}
+    {% if user.is_authenticated and user.has_perm('alquiler.change_perfil') %}
+        <h1>Actualizar Perfil</h1>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Actualizar</button>
+        </form>
+    {% else %}
+        <p>No tienes permisos o no estás logueado para actualizar el perfil.</p>
+    {% endif %}
+{% endblock %}

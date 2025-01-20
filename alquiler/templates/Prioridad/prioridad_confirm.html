@@ -1,7 +1,16 @@
 {% extends "principal.html" %}
 
 {% block contenido %}
-    <h1>Prioridad Eliminada</h1>
-    <p> La Prioridad ha sido eliminada con éxito.</p>
-    <a href="{% url 'servicioextra_lista' %}">Volver a la lista de Propiedades</a>
-{% endblock contenido %}
+    {% if user.is_authenticated %}
+        <h1>Prioridad Eliminada</h1>
+        <p> La Prioridad ha sido eliminada con éxito.</p>
+        <a href="{% url 'servicioextra_lista' %}">Volver a la lista de Propiedades</a>
+
+        {% if perms.alquiler.view_prioridad %}
+            <!-- Si el usuario tiene permiso para ver las prioridades -->
+            <a href="{% url 'prioridad_lista' %}">Ver lista de prioridades</a>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver la lista de prioridades.</p>
+    {% endif %}
+{% endblock %}

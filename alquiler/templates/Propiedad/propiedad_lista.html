@@ -1,29 +1,39 @@
 {% extends 'principal.html' %}
-{% block contenido %}
-    <h1>Lista de Propiedades</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Titulo</th>
-                <th>direccion</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for propiedad in propiedades %}
-            <tr>
-                <td>{{ propiedad.titulo }}</td>
-                <td>{{ propiedad.direccion}}</td>
-                <td>{{ propiedad.precio_por_noche }}</td>
-                <td>
-                    <a href="{% url 'propiedad_actualizar' propiedad.id %}">Actualizar</a>
-                    <a href="{% url 'propiedad_delete' propiedad.id %}">Eliminar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'propiedad_lista' %}">Crear nueva Propiedad</a>
-{% endblock %}
 
+{% block contenido %}
+    {% if user.is_authenticated %}
+        <h1>Lista de Propiedades</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Dirección</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for propiedad in propiedades %}
+                <tr>
+                    <td>{{ propiedad.titulo }}</td>
+                    <td>{{ propiedad.direccion }}</td>
+                    <td>{{ propiedad.precio_por_noche }}</td>
+                    <td>
+                        {% if perms.alquiler.change_propiedad %}
+                            <a href="{% url 'propiedad_actualizar' propiedad.id %}">Actualizar</a>
+                        {% endif %}
+                        {% if perms.alquiler.delete_propiedad %}
+                            <a href="{% url 'propiedad_delete' propiedad.id %}">Eliminar</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if perms.alquiler.add_propiedad %}
+            <a href="{% url 'propiedad_lista' %}">Crear nueva Propiedad</a>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para continuar.</p>
+    {% endif %}
+{% endblock %}

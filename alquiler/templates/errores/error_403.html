@@ -4,7 +4,13 @@
     <title>Error 403</title>
 </head>
 <body>
-    <h1>Error 403</h1>
-    <p>La página que buscas no existe.</p>
+    <h1>Error 403: Acceso denegado</h1>
+    <p>Lo siento, no tienes permiso para acceder a esta página.</p>
+    
+    {% if user.is_authenticated %}
+        <p>Si crees que esto es un error, por favor contacta con el administrador.</p>
+    {% else %}
+        <p>Para acceder a esta página, debes <a href="{% url 'login' %}">iniciar sesión</a>.</p>
+    {% endif %}
 </body>
 </html>

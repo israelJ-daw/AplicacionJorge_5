@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -54,4 +55,9 @@ urlpatterns = [
     path('error/404/', views.error_404, name='error_404'),  # Error personalizado
     path('error/404/', views.error_404, name='error_404'),  # Error personalizado
 
+    #Registrar 
+    path('registrar', views.registrar_usuario, name='registrar_usuario'),
+
+    #Logout
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]

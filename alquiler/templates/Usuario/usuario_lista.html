@@ -1,29 +1,44 @@
 {% extends 'principal.html' %}
+
 {% block contenido %}
-    <h1>Lista de Usuarios</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Telefono</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for usuario in usuarios %}
-            <tr>
-                <td>{{ usuario.id }}</td>
-                <td>{{ usuario.nombre }}</td>
-                <td>{{ usuario.telefono }}</td>
-                <td>{{ usuario.email }}</td>
-                <td>
-                    <a href="{% url 'usuario_actualizar' usuario.id %}">Actualizar</a>
-                    <a href="{% url 'usuario_delete' usuario.id %}">Eliminar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'usuario_crear' %}">Crear nuevo usuario</a>
+    {% if user.is_authenticated %}
+        {% if perms.alquiler.view_usuario %}
+            <h1>Lista de Usuarios</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.telefono }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>
+                            {% if perms.alquiler.change_usuario %}
+                                <a href="{% url 'usuario_actualizar' usuario.id %}">Actualizar</a>
+                            {% endif %}
+                            {% if perms.alquiler.delete_usuario %}
+                                <a href="{% url 'usuario_delete' usuario.id %}">Eliminar</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if perms.alquiler.add_usuario %}
+                <a href="{% url 'usuario_crear' %}">Crear nuevo usuario</a>
+            {% endif %}
+        {% else %}
+            <p>No tienes permiso para ver la lista de usuarios.</p>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para continuar.</p>
+    {% endif %}
 {% endblock %}

@@ -1,9 +1,14 @@
 {% extends "principal.html" %}
 {% block contenido %}
     <h1>Reservas de la Propiedad</h1>
-    <ul>
-        {% for reserva in reservas %}
-           {% include "plantillas/plantilla_reservas_propiedad.html" %}
-        {% endfor %}
-    </ul>
+
+    {% if user.is_authenticated %}
+            <ul>
+                {% for reserva in reservas %}
+                    {% include "plantillas/plantilla_reservas_propiedad.html" %}
+                {% endfor %}
+            </ul>
+    {% else %}
+        <p>Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver las reservas de la propiedad.</p>
+    {% endif %}
 {% endblock contenido %}

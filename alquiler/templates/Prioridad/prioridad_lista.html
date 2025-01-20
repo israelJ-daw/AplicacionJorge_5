@@ -1,29 +1,44 @@
 {% extends 'principal.html' %}
 {% block contenido %}
-    <h1>Lista de Prioridad</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>descripcion</th>
-                <th>Numero</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for prioridad in prioridades %}
-            <tr>
-                <td>{{ prioridad.nombre }}</td>
-                <td>{{ prioridad.descripcion}}</td>
-                <td>{{ prioridad.numero }}</td>
-                <td>
-                    <a href="{% url 'prioridad_actualizar' prioridad.id %}">Actualizar</a>
-                    <a href="{% url 'prioridad_delete' prioridad.id %}">Eliminar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'prioridad_lista' %}">Crear nueva Propiedad</a>
+    {% if user.is_authenticated %}
+        <h1>Lista de Prioridades</h1>
+        
+        {% if perms.alquiler.view_prioridad %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Número</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prioridad in prioridades %}
+                    <tr>
+                        <td>{{ prioridad.nombre }}</td>
+                        <td>{{ prioridad.descripcion }}</td>
+                        <td>{{ prioridad.numero }}</td>
+                        <td>
+                            {% if perms.alquiler.change_prioridad %}
+                                <a href="{% url 'prioridad_actualizar' prioridad.id %}">Actualizar</a>
+                            {% endif %}
+                            {% if perms.alquiler.delete_prioridad %}
+                                <a href="{% url 'prioridad_delete' prioridad.id %}">Eliminar</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No tienes permisos para ver las prioridades.</p>
+        {% endif %}
+        
+        {% if perms.alquiler.add_prioridad %}
+            <a href="{% url 'prioridad_crear' %}">Crear nueva Prioridad</a>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver las prioridades.</p>
+    {% endif %}
 {% endblock %}
-

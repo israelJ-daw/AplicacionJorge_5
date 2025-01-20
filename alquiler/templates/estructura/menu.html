@@ -1,13 +1,40 @@
 <h1>Mi Proyecto</h1>
 
+<div class "ml-2">
+  <h2>Registro</h2>
+  {%if not request.user.is_authenticated%}
+  <li><a class= "btn btn-outline-warning" href="{% url 'login' %}">Login</a></li>
+  {% endif %}
+
+
+{% if request.user.is_authenticated %}
+    <h3>Bienvenido: "{{request.user.username }}"</h3>
+    <h3>ID: "{{request.user.id}}"</h3>
+    <h3>Ultimo Acceso: "{{request.user.last_login}}"</h3>
+    <h3>Fecha de registro: "{{ request.user.date_joined }}"</h3>
+
+{% endif %}
+
+  {%if not request.user.is_authenticated%}
+  <li><a class= "btn btn-outline-warning" href="{% url 'registrar_usuario' %}">Registrar</a></li>
+  {%endif%}
+
+  {% if request.user.is_authenticated %}
+  <form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-warning">Desconectarse</button>
+</form>{% endif %}
+
+</div>
+  
     <h2>Listado de enlaces</h2>
 
 <ul>
     <li><a href="{% url 'usuario_detalle' email='andrea58@example.net' %}">Detalle de Usuario (OneToOne)</a></li>
     <li><a href="{% url 'lista_propiedades' %}">Lista de Propiedades (ManyToMany)</a></li>
-    <li><a href="{% url 'detalle_categoria' id=1 %}">Detalle de Categoría (QuerySet con parámetros)</a></li>
+    <li><a href="{% url 'detalle_categoria' id=3 %}">Detalle de Categoría (QuerySet con parámetros)</a></li>
     <li><a href="{% url 'reservas_propiedad' propiedad_id=1 %}">Reservas de una Propiedad (ManyToOne)</a></li>
-    <li><a href="{% url 'comentarios_propiedad' propiedad_id=1 %}">Comentarios de una Propiedad (Reverse)</a></li>
+    <li><a href="{% url 'comentarios_propiedad' propiedad_id=4 %}">Comentarios de una Propiedad (Reverse)</a></li>
     <li><a href="{% url 'filtrar_reservas' %}">Filtrar Reservas (AND, OR)</a></li>
     <li><a href="{% url 'categorias_sin_propiedades' %}">Categorías sin Propiedades (None intermedio)</a></li>
     <li><a href="{% url 'propiedad_precio_agregado' %}">Precio Promedio de Propiedades (Aggregate)</a></li>

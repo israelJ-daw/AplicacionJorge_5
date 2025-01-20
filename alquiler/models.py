@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from datetime import datetime
+
 
 class UsuarioLogin (AbstractUser):
     ADMINISTRADOR = 1 
@@ -8,7 +10,7 @@ class UsuarioLogin (AbstractUser):
     ROLES = (
         (ADMINISTRADOR, 'administrador'),
         (ANFRITION, 'anfrition'),
-        (USUARIO, 'Usuario'),
+        (USUARIO, 'usuario'),
         )
 
     rol = models.PositiveSmallIntegerField(
@@ -16,15 +18,14 @@ class UsuarioLogin (AbstractUser):
     )
 
 class Usuario(models.Model): 
-    
-    usaurio = models.OneToOneField(UsuarioLogin , on_delete=models.CASCADE)
+    usuario = models.OneToOneField(UsuarioLogin, on_delete=models.CASCADE)   
 
-    
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)
-    email = models.EmailField(max_length=254,)
+    email = models.EmailField(max_length=254)
     telefono = models.CharField(max_length=20, blank=True)
-    fecha_registro = models.DateTimeField(db_column="fecha")
+    fecha_registro = models.DateTimeField(db_column="fecha", null=False, default=datetime.now)
+
 
 
 class Perfil(models.Model):
@@ -101,5 +102,4 @@ class Anfrition(models.Model):
     usuario = models.OneToOneField(UsuarioLogin , on_delete=models.CASCADE)
      
     telefono = models.CharField(max_length=20, blank=True)
-    fecha_registro = models.DateTimeField(db_column="fecha")
     

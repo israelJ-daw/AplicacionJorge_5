@@ -6,5 +6,9 @@
 <body>
     <h1>Error 400</h1>
     <p>La página que buscas no existe.</p>
+
+    {% if not user.is_authenticated %}
+        <p>Para acceder a esta página, debes <a href="{% url 'login' %}">iniciar sesión</a>.</p>
+    {% endif %}
 </body>
 </html>

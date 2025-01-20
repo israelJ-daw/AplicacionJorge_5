@@ -1,14 +1,19 @@
 {% extends "principal.html" %}
-    {%block contenido%}
-        <h1>Categorías sin Propiedades</h1>
-        <ul>
-            {% for categoria in categorias %}
-                {%include "plantillas/plantilla_categorias_sin_propiedades.html"%}
-
-                {%empty%} 
-                <h1>NO HAY NADA</h1>
-            
-            {% endfor %}
-        </ul>
-          
-    {%endblock%}    
+{% block contenido %}
+    {% if user.is_authenticated %}
+        {% if perms.alquiler.view_categoria %}
+            <h1>Categorías sin Propiedades</h1>
+            <ul>
+                {% for categoria in categorias %}
+                    {% include "plantillas/plantilla_categorias_sin_propiedades.html" %}
+                {% empty %}
+                    <h1>NO HAY NADA</h1>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tienes permiso para ver las categorías.</p>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para continuar.</p>
+    {% endif %}
+{% endblock %}

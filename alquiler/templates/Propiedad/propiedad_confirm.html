@@ -1,7 +1,15 @@
 {% extends "principal.html" %}
 
 {% block contenido %}
-    <h1>Propiedad Eliminada</h1>
-    <p> La Propiedad ha sido eliminada con éxito.</p>
-    <a href="{% url 'servicioextra_lista' %}">Volver a la lista de Propiedades</a>
-{% endblock contenido %}
+    {% if user.is_authenticated %}
+        <h1>Propiedad Eliminada</h1>
+        {% if perms.alquiler.delete_propiedad %}
+            <p>La Propiedad ha sido eliminada con éxito.</p>
+            <a href="{% url 'servicioextra_lista' %}">Volver a la lista de Propiedades</a>
+        {% else %}
+            <p>No tienes permisos para eliminar propiedades.</p>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para continuar.</p>
+    {% endif %}
+{% endblock %}

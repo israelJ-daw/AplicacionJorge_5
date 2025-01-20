@@ -1,7 +1,16 @@
 {% extends "principal.html" %}
-    {%block contenido%}
-        {% for comentario in propiedad.comentarios.all %}
-            {% include "plantillas/plantilla_comentarios_propiedad.html" %}
-        {% endfor %}
-    </ul>
-    {% endblock contenido%}
+{% block contenido %}
+    {% if user.is_authenticated %}
+        {% if perms.alquiler.view_comentario %}
+            <ul>
+                {% for comentario in propiedad.comentarios.all %}
+                    {% include "plantillas/plantilla_comentarios_propiedad.html" %}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tienes permiso para ver los comentarios de esta propiedad.</p>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver los comentarios.</p>
+    {% endif %}
+{% endblock %}

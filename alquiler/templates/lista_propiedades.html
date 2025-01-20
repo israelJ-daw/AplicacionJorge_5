@@ -1,7 +1,20 @@
 {% extends "principal.html" %}
-    {% block contenido %}
-        <h1>Lista de Propiedades</h1>
+
+{% block contenido %}
+    <h1>Lista de Propiedades</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Bienvenido, {{ user.username }}. Puedes ver las propiedades y realizar acciones si tienes los permisos correspondientes.</p>
+        
         {% for propiedad in propiedades %}
-         {% include "plantillas/plantilla_lista_propiedades.html" %}
+            {% if user.has_perm 'app.view_propiedad' %}
+                {% include "plantillas/plantilla_lista_propiedades.html" %}
+            {% else %}
+                <p>No tienes permiso para ver esta propiedad.</p>
+            {% endif %}
         {% endfor %}
-    {% endblock contenido %}
+        
+    {% else %}
+        <p>Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver las propiedades.</p>
+    {% endif %}
+{% endblock contenido %}

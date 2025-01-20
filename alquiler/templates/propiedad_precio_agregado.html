@@ -5,6 +5,15 @@
 </head>
 <body>
     <h1>Precio Promedio de Propiedades</h1>
-    <p><strong>Precio Promedio:</strong> {{ precio_promedio.precio_por_noche__avg }}</p>
+
+    {% if user.is_authenticated %}
+        {% if perms.alquiler.view_precio_promedio %}
+            <p><strong>Precio Promedio:</strong> {{ precio_promedio.precio_por_noche__avg }}</p>
+        {% else %}
+            
+        {% endif %}
+    {% else %}
+        <p>Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver esta información.</p>
+    {% endif %}
 </body>
 </html>

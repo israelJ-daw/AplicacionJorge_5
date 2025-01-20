@@ -1,7 +1,9 @@
-{% extends "principal.html" %}
-
-{% block contenido %}
-    <h1>Categoria Eliminado</h1>
-    <p> La categoria ha sido eliminada con éxito.</p>
-    <a href="{% url 'categoria_lista' %}">Volver a la lista de Categoria</a>
-{% endblock contenido %}
+{% if request.user.is_authenticated %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ formulario.as_p }}  
+        <button type="submit">Actualizar</button>
+    </form>
+{% else %}
+    <p>Por favor, inicia sesión para actualizar tu información.</p>
+{% endif %}

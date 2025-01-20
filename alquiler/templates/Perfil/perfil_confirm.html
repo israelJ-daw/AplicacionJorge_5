@@ -1,7 +1,11 @@
 {% extends "principal.html" %}
 
 {% block contenido %}
-    <h1>perfil Eliminado</h1>
-    <p>El perfil ha sido eliminado con éxito.</p>
-    <a href="{% url 'perfil_lista' %}">Volver a la lista de usuarios</a>
+    {% if user.is_authenticated %}
+        <h1>Perfil Eliminado</h1>
+        <p>El perfil ha sido eliminado con éxito.</p>
+        <a href="{% url 'perfil_lista' %}">Volver a la lista de usuarios</a>
+    {% else %}
+        <p>No tienes permiso para ver esta página. Por favor, <a href="{% url 'login' %}">inicia sesión</a>.</p>
+    {% endif %}
 {% endblock contenido %}

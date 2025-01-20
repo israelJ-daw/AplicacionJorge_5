@@ -1,10 +1,14 @@
 {% extends "principal.html" %}
 {% block contenido %}
-<h1>Eliminar Perfil</h1>
-    <form method="post">
-        {% csrf_token %}
-        <p>¿Estás seguro de que deseas eliminar el Perfil {{ perfil.id }}?</p>
-        <button type="submit">Sí, eliminar </button> 
-        <a href="{% url 'perfil_lista' %}">Cancelar</a>
-    </form>
+    {% if user.is_authenticated %}
+        <h1>Eliminar Perfil</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>¿Estás seguro de que deseas eliminar el Perfil {{ perfil.id }}?</p>
+            <button type="submit">Sí, eliminar</button>
+            <a href="{% url 'perfil_lista' %}">Cancelar</a>
+        </form>
+    {% else %}
+        <p>No tienes permiso para realizar esta acción. Por favor, <a href="{% url 'login' %}">inicia sesión</a>.</p>
+    {% endif %}
 {% endblock contenido %}

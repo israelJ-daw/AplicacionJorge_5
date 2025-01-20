@@ -1,11 +1,27 @@
-<li>
-    <p><strong>Contenido:</strong> {{ comentario.contenido| default:"No hay nada" }}</p>
-    <p><strong>Fecha:</strong> {{ comentario.fecha_comentario|date:"d-m-Y" }}</p>
-    <p><strong>Hace:</strong> {{ comentario.fecha_comentario|timesince }}</p>
-    <p><strong>Valoración:</strong> {{ comentario.valoracion }}</p>
-    {% if comentario.anonimo == True %}
-        <p><strong>Anónimo:</strong> Este comentario fue hecho de manera anónima.</p>
-    {% else %}
-        <p><strong>Anónimo:</strong> Este comentario no es anónimo.</p>
-    {% endif %}
-</li>
+{% if user.is_authenticated %}
+    <li>
+        <p><strong>Contenido:</strong> {{ comentario.contenido | default:"No hay nada" }}</p>
+        <p><strong>Fecha:</strong> {{ comentario.fecha_comentario | date:"d-m-Y" }}</p>
+        <p><strong>Hace:</strong> {{ comentario.fecha_comentario | timesince }}</p>
+        <p><strong>Valoración:</strong> {{ comentario.valoracion }}</p>
+        
+        {% if comentario.anonimo %}
+            <p><strong>Anónimo:</strong> Este comentario fue hecho de manera anónima.</p>
+        {% else %}
+            <p><strong>Anónimo:</strong> Este comentario no es anónimo.</p>
+        {% endif %}
+        
+        {% if perms.alquiler.change_comentario %}
+            <!-- Si el usuario tiene permiso para editar el comentario -->
+            <a href="{% url 'comentario_editar' comentario.id %}">Editar</a>
+        {% endif %}
+        
+        {% if perms.alquiler.delete_comentario %}
+            <!-- Si el usuario tiene permiso para eliminar el comentario -->
+            <a href="{% url 'comentario_eliminar' comentario.id %}">Eliminar</a>
+        {% endif %}
+        
+    </li>
+{% else %}
+    <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver los comentarios.</p>
+{% endif %}

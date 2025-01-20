@@ -1,7 +1,21 @@
-<li>
-    {% if propiedad.direccion != "Subject add media. Discussion person people however day couple. Cold type begin." %}
-        <p>{{ propiedad.titulo|title }} - Propiedad destacada en {{ propiedad.direccion|upper }}</p>
-    {% else %}
-        <p>{{ propiedad.titulo | lower }} - {{ propiedad.direccion }}</p>
-    {% endif %}
-</li>
+{% if user.is_authenticated %}
+    <li>
+        {% if propiedad.direccion != "Subject add media. Discussion person people however day couple. Cold type begin." %}
+            <p>{{ propiedad.titulo|title }} - Propiedad destacada en {{ propiedad.direccion|upper }}</p>
+        {% else %}
+            <p>{{ propiedad.titulo|lower }} - {{ propiedad.direccion }}</p>
+        {% endif %}
+        
+        {% if perms.alquiler.change_propiedad %}
+            <!-- Si el usuario tiene permiso para editar la propiedad -->
+            <a href="{% url 'propiedad_actualizar' propiedad.id %}">Editar</a>
+        {% endif %}
+        
+        {% if perms.alquiler.delete_propiedad %}
+            <!-- Si el usuario tiene permiso para eliminar la propiedad -->
+            <a href="{% url 'propiedad_delete' propiedad.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+{% else %}
+    <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver la propiedad.</p>
+{% endif %}

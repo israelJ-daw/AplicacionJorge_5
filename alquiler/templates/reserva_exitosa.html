@@ -1,1 +1,18 @@
-<h1>RESERVA EXITOSA</h1>
+<h1>RESERVA EXITOSA</h1><!DOCTYPE html>
+<html>
+<head>
+    <title>Reserva Exitosa</title>
+</head>
+<body>
+    <h1>Reserva Exitosa</h1>
+
+    {% if user.is_authenticated %}
+            <p>Tu reserva se ha realizado con éxito.</p>
+        {% else %}
+            <p>No tienes permiso para ver los detalles de esta reserva.</p>
+        {% endif %}
+    {% else %}
+        <p>Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver los detalles de tu reserva.</p>
+    {% endif %}
+</body>
+</html>

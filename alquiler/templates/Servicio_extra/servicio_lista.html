@@ -1,29 +1,43 @@
 {% extends 'principal.html' %}
-{% block contenido %}
-    <h1>Lista de servicios</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>descripcion</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for servicio in servicios %}
-            <tr>
-                <td>{{ servicio.nombre }}</td>
-                <td>{{ servicio.descripcion}}</td>
-                <td>{{ servicio.precio }}</td>
-                <td>
-                    <a href="{% url 'servicioextra_actualizar' servicio.id %}">Actualizar</a>
-                    <a href="{% url 'servicioextra_delete' servicio.id %}">Eliminar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'servicioextra_crear' %}">Crear nuevo Servicio</a>
-{% endblock %}
 
+{% block contenido %}
+    {% if user.is_authenticated %}
+        {% if perms.alquiler.view_servicioextra %}
+            <h1>Lista de servicios</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for servicio in servicios %}
+                    <tr>
+                        <td>{{ servicio.nombre }}</td>
+                        <td>{{ servicio.descripcion }}</td>
+                        <td>{{ servicio.precio }}</td>
+                        <td>
+                            {% if perms.alquiler.change_servicioextra %}
+                                <a href="{% url 'servicioextra_actualizar' servicio.id %}">Actualizar</a>
+                            {% endif %}
+                            {% if perms.alquiler.delete_servicioextra %}
+                                <a href="{% url 'servicioextra_delete' servicio.id %}">Eliminar</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if perms.alquiler.add_servicioextra %}
+                <a href="{% url 'servicioextra_crear' %}">Crear nuevo Servicio</a>
+            {% endif %}
+        {% else %}
+            <p>No tienes permisos para ver los servicios.</p>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para acceder a la lista de servicios.</p>
+    {% endif %}
+{% endblock %}

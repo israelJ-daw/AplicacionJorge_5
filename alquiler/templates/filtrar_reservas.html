@@ -1,7 +1,11 @@
 {% extends "principal.html" %}
-    {% block contenido %}
-        {% for reserva in reservas %}
-           {% include "plantillas/plantilla_filtrar_reservas.html" %}
-        {% endfor %}
-    </ul>
-    {% endblock contenido%}
+{% block contenido %}
+    {% if user.is_authenticated %}
+            {% for reserva in reservas %}
+                {% include "plantillas/plantilla_filtrar_reservas.html" %}
+            {% endfor %}
+       
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para ver las reservas.</p>
+    {% endif %}
+{% endblock contenido %}

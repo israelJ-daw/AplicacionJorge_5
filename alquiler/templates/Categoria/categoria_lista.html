@@ -1,29 +1,33 @@
-
 {% extends 'principal.html' %}
+
 {% block contenido %}
-    <h1>Lista de Categorias</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>descripcion</th>
-                <th>premiun</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for categoria in servicios %}
-            <tr>
-                <td>{{ categoria.nombre }}</td>
-                <td>{{ categoria.descripcion}}</td>
-                <td>{{ categoria.premiun }}</td>
-                <td>
-                    <a href="{% url 'categoria_actualizar' categoria.id %}">Actualizar</a>
-                    <a href="{% url 'categoria_delete' categoria.id %}">Eliminar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'categoria_crear' %}">Crear nuevo Categoria</a>
+    {% if user.is_authenticated %}
+        <h1>Lista de Categorías</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Premium</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.nombre }}</td>
+                    <td>{{ categoria.descripcion }}</td>
+                    <td>{{ categoria.premiun }}</td>
+                    <td>
+                            <a href="{% url 'categoria_actualizar' categoria.id %}">Actualizar</a>
+                            <a href="{% url 'categoria_delete' categoria.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            <a href="{% url 'categoria_crear' %}">Crear nueva Categoría</a>
+    {% else %}
+        <p>No tienes permiso para ver esta página. Por favor, <a href="{% url 'login' %}">inicia sesión</a>.</p>
+    {% endif %}
 {% endblock %}

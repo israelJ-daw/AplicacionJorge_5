@@ -4,11 +4,22 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Formulario para Usuario
 class UsuarioForm(forms.ModelForm):
+    username = forms.CharField(
+        max_length=150, 
+        required=True, 
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Nombre de Usuario"
+    )
+    password = forms.CharField(
+        required=True, 
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        label="Contraseña"
+    )
+
     class Meta:
         model = Usuario
-        fields = ['nombre', 'email', 'telefono', 'fecha_registro']
+        fields = ['email', 'telefono', 'fecha_registro']  # Ya no es necesario incluir 'nombre'
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'}), 
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_registro': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
@@ -110,7 +121,7 @@ class ServicioExtraForm(forms.ModelForm):
 class PropiedadForm(forms.ModelForm):
     class Meta:
         model = Propiedad
-        fields = ['titulo', 'direccion', 'precio_por_noche', 'max_usuarios', 'usuario', 'categoria', 'servicios_extra']
+        fields = ['titulo', 'direccion', 'precio_por_noche', 'max_usuarios', 'usuario', 'categoria']
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control'}),
@@ -118,7 +129,6 @@ class PropiedadForm(forms.ModelForm):
             'max_usuarios': forms.NumberInput(attrs={'class': 'form-control'}),
             'usuario': forms.Select(attrs={'class': 'form-control'}),
             'categoria': forms.SelectMultiple(attrs={'class': 'form-control'}),
-            'servicios_extra': forms.CheckboxSelectMultiple(),
         }
 
     # Validacion para asegurar que el precio no sea negativo 
